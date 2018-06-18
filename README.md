@@ -1,0 +1,3 @@
+# Example reactive queues application
+
+It is implementation of application described in JLupin Platfrom documentation ([here](https://jlupinnextserver.io/documentation/jlupin-next-server-141/page/developer-reactive_queues.html)). It is using default configuration of queueMicroservice (included in CE version of server). After deploying page can be accessed at [http://localhost:8000/example](http://localhost:8000/example). Only integers can be sent through form on site.

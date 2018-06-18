@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="common-pojo" />
+        <module name="common-util" />
+        <module name="example-implementation" />
+        <module name="integration-test" />
+        <module name="sample-implementation" />
+        <module name="sample-interfaces" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="common-pojo" target="1.8" />
+      <module name="common-util" target="1.8" />
+      <module name="demo-reactive-queues" target="1.8" />
+      <module name="example-implementation" target="1.8" />
+      <module name="integration-test" target="1.8" />
+      <module name="sample-implementation" target="1.8" />
+      <module name="sample-interfaces" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

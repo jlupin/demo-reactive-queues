@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/common-pojo/common-pojo.iml" filepath="$PROJECT_DIR$/common-pojo/common-pojo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/common-util/common-util.iml" filepath="$PROJECT_DIR$/common-util/common-util.iml" />
+      <module fileurl="file://$PROJECT_DIR$/demo-reactive-queues.iml" filepath="$PROJECT_DIR$/demo-reactive-queues.iml" />
+      <module fileurl="file://$PROJECT_DIR$/example/implementation/example-implementation.iml" filepath="$PROJECT_DIR$/example/implementation/example-implementation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/integration-test/integration-test.iml" filepath="$PROJECT_DIR$/integration-test/integration-test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sampleMicroservice/implementation/sample-implementation.iml" filepath="$PROJECT_DIR$/sampleMicroservice/implementation/sample-implementation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sampleMicroservice/interfaces/sample-interfaces.iml" filepath="$PROJECT_DIR$/sampleMicroservice/interfaces/sample-interfaces.iml" />
+    </modules>
+  </component>
+</project>

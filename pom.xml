@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.example</groupId>
+    <artifactId>demo-reactive-queues</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+
+    <repositories>
+        <!-- Repository is also accessible using https connection: -->
+        <!-- https://support.jlupin.com/maven2/ -->
+        <repository>
+            <id>jlupin-central</id>
+            <name>jlupin</name>
+            <url>http://support.jlupin.com/maven2/</url>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <!-- Repository is also accessible using https connection: -->
+        <!-- https://support.jlupin.com/maven2/ -->
+        <pluginRepository>
+            <id>jlupin-central</id>
+            <name>jlupin</name>
+            <url>http://support.jlupin.com/maven2/</url>
+        </pluginRepository>
+    </pluginRepositories>
+
+    <modules>
+        <module>common-pojo</module>
+        <module>common-util</module>
+        <module>sampleMicroservice/interfaces</module>
+        <module>sampleMicroservice/implementation</module>
+        <module>example/implementation</module>
+        <module>integration-test</module>
+    </modules>
+
+    <properties>
+        <jlupin.server.version>1.4.1.0-RC6</jlupin.server.version>
+        <jlupin.skipDeploy>true</jlupin.skipDeploy>
+        <maven.surefire.skipTests>false</maven.surefire.skipTests>
+
+        <spring.context.version>4.3.9.RELEASE</spring.context.version>
+        <maven.failsafe.plugin.version>2.20</maven.failsafe.plugin.version>
+        <maven.surefire.plugin.version>2.20</maven.surefire.plugin.version>
+        <jlupin.next.server.maven.plugin.version>1.1.2</jlupin.next.server.maven.plugin.version>
+        <slf4j.version>1.8.0-alpha2</slf4j.version>
+        <log4j.slf4j.bridge.version>2.10.0</log4j.slf4j.bridge.version>
+
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven.surefire.plugin.version}</version>
+                <configuration>
+                    <skipTests>${maven.surefire.skipTests}</skipTests>
+                </configuration>
+            </plugin>
+        </plugins>
+
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>com.jlupin</groupId>
+                    <artifactId>jlupin-next-server-maven-plugin</artifactId>
+                    <version>${jlupin.next.server.maven.plugin.version}</version>
+                    <executions>
+                        <execution>
+                            <id>jlupin-zip</id>
+                            <goals>
+                                <goal>zip</goal>
+                            </goals>
+                            <configuration>
+                                <additionalFilesDirectories>
+                                    <param>../additional-files</param>
+                                </additionalFilesDirectories>
+                            </configuration>
+                        </execution>
+                        <execution>
+                            <id>jlupin-deploy</id>
+                            <phase>pre-integration-test</phase>
+                            <goals>
+                                <goal>deploy</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-failsafe-plugin</artifactId>
+                    <version>${maven.failsafe.plugin.version}</version>
+                    <executions>
+                        <execution>
+                            <id>integration-test</id>
+                            <goals>
+                                <goal>integration-test</goal>
+                                <goal>verify</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                    <configuration>
+                        <includes>
+                            <include>**/Test*.java</include>
+                            <include>**/*Test.java</include>
+                            <include>**/*Tests.java</include>
+                            <include>**/*TestCase.java</include>
+                        </includes>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+</project>
